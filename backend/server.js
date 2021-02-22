@@ -31,11 +31,11 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/product", productRoute); // ! Il fallait mettre cela pour pouvoir voir les détais du produit
-
+/*
 app.use(express.static(path.join(__dirname, "/frontend/build")));
 app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/frontend/build/index.html"))
-);
+);*/
 // app.get('/', (req, res) => {
 //   res.send('Server is ready');
 // });
