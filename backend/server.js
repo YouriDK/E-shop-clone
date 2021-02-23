@@ -1,5 +1,5 @@
 import express from "express";
-import config from "./config.js";
+import config from "./Scripts/config.js";
 import doten from "dotenv";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
@@ -9,7 +9,7 @@ import orderRoute from "./routes/orderRoutes.js";
 
 doten.config();
 
-const mongodb_Url = config.MONGODB_URL;
+const mongodb_Url = config.MONGODB_URI || config.MONGODB_URL;
 
 mongoose
   .connect(mongodb_Url, {
@@ -18,7 +18,7 @@ mongoose
     useUnifiedTopology: true,
     useCreateIndex: true,
   })
-  .catch((error) => console.log(error.reason));
+  .catch((error) => console.log(error));
 
 mongoose.connection.on("connected", () => {
   console.log("Mongoose is connected ! ");
