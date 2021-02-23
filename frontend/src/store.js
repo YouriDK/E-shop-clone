@@ -1,5 +1,5 @@
 import { applyMiddleware, combineReducers, createStore, compose } from "redux";
-import Cookie from "js-cookie";
+
 import {
   productListReducer,
   productDetailsReducer,

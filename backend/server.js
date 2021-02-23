@@ -11,6 +11,7 @@ import path from "path";
 doten.config();
 // *  Mongo DB URI c'est le mongo DB atlas pas le compass en local
 const MONGODB_URI = config.MONGODB_URI;
+const PORT = process.env.PORT || 5000;
 
 mongoose
   .connect(MONGODB_URI, {
@@ -40,6 +41,13 @@ if (process.env.NODE_ENV === "production ") {
     res.sendFile(
       path.join(__dirname + "../", "frontend", "build", "index.html")
     );
+    console.log(
+      "AAAAAAAA",
+      __dirname + "../",
+      "frontend",
+      "build",
+      "index.html"
+    );
   });
 } else {
   app.get("/", (req, res) => {
@@ -51,7 +59,7 @@ app.get("/api/config/paypal", (req, res) => {
   //* Pour récupérer le client ID paypal dans le back end
   res.send(process.env.PAYPAL_CLIENT_ID || "sb");
 });
-
-app.listen(process.env.PORT || 5000, () => {
+app.set("PORT", PORT);
+app.listen(PORT, () => {
   console.log(`Serve at http://localhost:${PORT}`);
 });
