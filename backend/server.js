@@ -33,21 +33,12 @@ app.use("/api/users", userRoute);
 app.use("/api/products", productRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/product", productRoute); // ! Il fallait mettre cela pour pouvoir voir les détais du produit
-
+var __dirname = path.resolve(path.dirname(""));
 // * Middleware pour changer entre developpement et production
-if (process.env.NODE_ENV === "production ") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
   app.get("*", (req, res) => {
-    res.sendFile(
-      path.join(__dirname + "../", "frontend", "build", "index.html")
-    );
-    console.log(
-      "AAAAAAAA",
-      __dirname + "../",
-      "frontend",
-      "build",
-      "index.html"
-    );
+    res.sendFile(path.join(__dirname, "frontend", "build", "index.html"));
   });
 } else {
   app.get("/", (req, res) => {
