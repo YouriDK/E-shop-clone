@@ -26,7 +26,6 @@ mongoose.connection.on("connected", () => {
 });
 
 const app = express();
-const PORT = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
 app.use("/api/users", userRoute);
@@ -53,6 +52,6 @@ app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sb");
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || 5000, () => {
   console.log(`Serve at http://localhost:${PORT}`);
 });
