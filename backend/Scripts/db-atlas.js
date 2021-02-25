@@ -16,8 +16,6 @@ export const connectDBAtlas = async () => {
         useCreateIndex: true,
       })
       .catch((error) => console.log("FAIL", error));
-
-    console.log("CONGRATS IT WORKS !");
   } catch (error) {
     console.log("Connection failed ! ");
     process.exit(1);

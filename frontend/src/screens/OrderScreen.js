@@ -6,7 +6,11 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { PayPalButton } from "react-paypal-button-v2";
 import Axios from "axios";
-
+/* // TODOEspacer Nom et adresse ainsi que les alerts
+  TODO  Centrer Order *** ou ne pas mettre la réf de l'ordre
+  TODO  Aligner bouton et compteur
+  TODO  Agrandir le texte du nom du produit et le prix
+*/
 export default function OrderScreen(props) {
   const [sdkReady, setSdkReady] = useState(false);
   const orderId = props.match.params.id;

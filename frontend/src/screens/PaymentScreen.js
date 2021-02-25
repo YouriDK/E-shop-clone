@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { savePayment } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckOutStep";
-
+// TODO Centrer les méthodes de paiement
 export default function PaymentScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
@@ -10,15 +10,13 @@ export default function PaymentScreen(props) {
     props.history.push("/shipping");
   }
   const [paymentMethod, setPaymentMethod] = useState("Paypal");
-
   const dispatch = useDispatch();
-
-  // ! If you don't put , [] at the end , he will start again over and over
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(savePayment(paymentMethod));
     props.history.push("placeorder");
   };
+
   return (
     <div>
       <CheckoutSteps step1 step2 step3>
@@ -43,6 +41,7 @@ export default function PaymentScreen(props) {
             ></input>
             <label htmlFor="paymentMethod">Paypal</label>
           </div>
+          <br />
           <div>
             <input
               type="radio"

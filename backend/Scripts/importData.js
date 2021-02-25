@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 
 // ! Scripts pour transférer les données en ligne sur Atlas
+// ! Pour utiliser ce script : node ./backend/Scripts/importData.js  avec argument --import ou --delete
 import { connectDBAtlas } from "./db-atlas.js";
 
 var __dirname = path.resolve(path.dirname(""));

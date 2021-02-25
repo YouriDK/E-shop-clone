@@ -5,6 +5,9 @@ import { signin } from "../actions/userActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 
+// TODO Centrer You don't ...
+// TODO Mettre Create dans un bouton
+
 export default function SignInScreen(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

@@ -6,6 +6,9 @@ import {
   deleteProduct,
 } from "../actions/productActions";
 
+// TODO Chercher ptet un template de tableau plus joli
+// TODO Quand on crée un produit le tableau doit disparaitre
+
 export default function Productscreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
   const [name, setName] = useState("");
@@ -91,15 +94,15 @@ export default function Productscreen(props) {
       {modalVisible && (
         <div className="form">
           <form onSubmit={submitHandler}>
-            <ul className="form-container">
-              <li>
-                <h2 className="text-center">Create product</h2>
-              </li>
-              <li>
+            <div className="form">
+              <div>
+                <h1 className="text-center">Create product</h1>
+              </div>
+              <div>
                 {loadingSave && <div> Loading .. </div>}
                 {errorSave && <div> {errorSave}</div>}
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="name">Name</label>
                 <input
                   value={name}
@@ -108,8 +111,8 @@ export default function Productscreen(props) {
                   id="name"
                   onChange={(e) => setName(e.target.value)}
                 ></input>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="price">Price</label>
                 <input
                   value={price}
@@ -118,8 +121,8 @@ export default function Productscreen(props) {
                   id="price"
                   onChange={(e) => setPrice(e.target.value)}
                 ></input>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="image">Image</label>
                 <input
                   value={image}
@@ -128,8 +131,8 @@ export default function Productscreen(props) {
                   id="image"
                   onChange={(e) => setImage(e.target.value)}
                 ></input>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="brand">Brand</label>
                 <input
                   value={brand}
@@ -138,8 +141,8 @@ export default function Productscreen(props) {
                   id="brand"
                   onChange={(e) => setBrand(e.target.value)}
                 ></input>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="brand">Count in Stock</label>
                 <input
                   value={countInStock}
@@ -148,8 +151,8 @@ export default function Productscreen(props) {
                   id="countInStock"
                   onChange={(e) => setCountInStock(e.target.value)}
                 ></input>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="category">Category</label>
                 <input
                   value={category}
@@ -158,9 +161,9 @@ export default function Productscreen(props) {
                   id="category"
                   onChange={(e) => setCategory(e.target.value)}
                 ></input>
-              </li>
+              </div>
 
-              <li>
+              <div>
                 <label htmlFor="description">Description</label>
                 <textarea
                   value={description}
@@ -169,8 +172,8 @@ export default function Productscreen(props) {
                   id="description"
                   onChange={(e) => setDescription(e.target.value)}
                 ></textarea>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="rating">Rating</label>
                 <input
                   value={rating}
@@ -179,8 +182,8 @@ export default function Productscreen(props) {
                   id="rating"
                   onChange={(e) => setRating(e.target.value)}
                 ></input>
-              </li>
-              <li>
+              </div>
+              <div>
                 <label htmlFor="numReviews">Numbers of reviews</label>
                 <input
                   value={numReviews}
@@ -189,11 +192,13 @@ export default function Productscreen(props) {
                   id="numReviews"
                   onChange={(e) => setNumReviews(e.target.value)}
                 ></input>
-              </li>
-              <li>
+              </div>
+              <div>
+                <br />
                 <button type="submit" className="button primary">
                   {id ? "Update" : "Create"}
                 </button>
+                <br />
                 <button
                   onClick={() => setModalVisible(false)}
                   type="submit"
@@ -201,8 +206,8 @@ export default function Productscreen(props) {
                 >
                   Back{" "}
                 </button>
-              </li>
-            </ul>
+              </div>
+            </div>
           </form>
         </div>
       )}

@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@700&display=swap");
+
+.font-list {
+  font-family: "Shippori Mincho B1", serif;
+}
 html {
   font-size: 62.5%; /* 16px x 62.5 = 10px = 1rem */
   box-sizing: border-box;

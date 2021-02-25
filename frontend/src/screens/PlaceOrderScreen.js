@@ -6,7 +6,8 @@ import CheckoutSteps from "../components/CheckOutStep";
 import { ORDER_CREATE_RESET } from "../constants/orderConstant";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
-
+/* // TODO Espacer Nom et adresse ainsi que les alerts
+ */
 export default function PlaceOrderScreen(props) {
   const cart = useSelector((state) => state.cart);
   // * Il conserve dans cart pour écrire directement dedans ( Faster )

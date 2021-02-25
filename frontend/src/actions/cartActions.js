@@ -30,12 +30,10 @@ const addToCart = (productId, qty) => async (dispatch, getState) => {
 
 const removeFromCart = (productId) => (dispatch, getState) => {
   dispatch({ type: CART_REMOVE_ITEM, payload: productId });
-
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 const saveShipping = (data) => (dispatch) => {
   dispatch({ type: CART_SAVE_SHIPPING, payload: data });
-  // * Pas sur de savoir pourquoi
   localStorage.setItem("shippingAddress", JSON.stringify(data));
 };
 

@@ -57,3 +57,19 @@
   font-size: 2.5rem;
   text-align: right;
 }
+
+.product-list {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.flex {
+  display: flex;
+}
+
+.flex :nth-child(1) {
+  margin-right: 15px;
+}
+
+.cart-title {
+  margin-left: 15px;
+}
