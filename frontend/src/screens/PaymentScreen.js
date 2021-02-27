@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { savePayment } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckOutStep";
-// TODO Centrer les méthodes de paiement
+// *fait Centrer les méthodes de paiement
 export default function PaymentScreen(props) {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
@@ -29,7 +29,7 @@ export default function PaymentScreen(props) {
         </div>
 
         <div>
-          <div>
+          <div className="text-center">
             <input
               type="radio"
               value="paypal"
@@ -42,7 +42,7 @@ export default function PaymentScreen(props) {
             <label htmlFor="paymentMethod">Paypal</label>
           </div>
           <br />
-          <div>
+          <div className="text-center">
             <input
               type="radio"
               value="stripe"
@@ -54,7 +54,7 @@ export default function PaymentScreen(props) {
             <label htmlFor="paymentMethod">Stripe</label>
           </div>
         </div>
-
+        <br />
         <div>
           <button type="submit" className=" button primary">
             Continue{" "}

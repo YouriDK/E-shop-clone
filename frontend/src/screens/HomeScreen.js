@@ -13,7 +13,6 @@ export default function HomeScreen() {
   useEffect(() => {
     dispatch(listProducts());
   }, [dispatch]);
-
   return loading ? (
     <LoadingBox></LoadingBox>
   ) : error ? (

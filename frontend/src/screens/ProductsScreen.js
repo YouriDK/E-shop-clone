@@ -7,7 +7,7 @@ import {
 } from "../actions/productActions";
 
 // TODO Chercher ptet un template de tableau plus joli
-// TODO Quand on crée un produit le tableau doit disparaitre
+// *fait Quand on crée un produit le tableau doit disparaitre
 
 export default function Productscreen(props) {
   const [modalVisible, setModalVisible] = useState(false);
@@ -83,9 +83,9 @@ export default function Productscreen(props) {
     dispatch(deleteProduct(product._id));
   };
   return (
-    <div className=" content content-margined">
+    <div className="content content-margined">
       <div className="product-header">
-        <h3>Product</h3>
+        <h3 className="font-title">Products</h3>
         <button className="button primary" onClick={() => openModal({})}>
           {" "}
           Create Product{" "}
@@ -96,14 +96,16 @@ export default function Productscreen(props) {
           <form onSubmit={submitHandler}>
             <div className="form">
               <div>
-                <h1 className="text-center">Create product</h1>
+                <h1 className="text-center font-title">Create product</h1>
               </div>
               <div>
                 {loadingSave && <div> Loading .. </div>}
                 {errorSave && <div> {errorSave}</div>}
               </div>
               <div>
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">
+                  <strong>Name</strong>
+                </label>
                 <input
                   value={name}
                   type="text"
@@ -113,7 +115,9 @@ export default function Productscreen(props) {
                 ></input>
               </div>
               <div>
-                <label htmlFor="price">Price</label>
+                <label htmlFor="price">
+                  <strong>Price</strong>
+                </label>
                 <input
                   value={price}
                   type="text"
@@ -123,7 +127,9 @@ export default function Productscreen(props) {
                 ></input>
               </div>
               <div>
-                <label htmlFor="image">Image</label>
+                <label htmlFor="image">
+                  <strong>Image</strong>
+                </label>
                 <input
                   value={image}
                   type="text"
@@ -133,7 +139,9 @@ export default function Productscreen(props) {
                 ></input>
               </div>
               <div>
-                <label htmlFor="brand">Brand</label>
+                <label htmlFor="brand">
+                  <strong>Brand</strong>
+                </label>
                 <input
                   value={brand}
                   type="text"
@@ -143,7 +151,9 @@ export default function Productscreen(props) {
                 ></input>
               </div>
               <div>
-                <label htmlFor="brand">Count in Stock</label>
+                <label htmlFor="brand">
+                  <strong>Count in Stock</strong>
+                </label>
                 <input
                   value={countInStock}
                   type="text"
@@ -153,7 +163,9 @@ export default function Productscreen(props) {
                 ></input>
               </div>
               <div>
-                <label htmlFor="category">Category</label>
+                <label htmlFor="category">
+                  <strong>Category</strong>
+                </label>
                 <input
                   value={category}
                   type="text"
@@ -164,7 +176,9 @@ export default function Productscreen(props) {
               </div>
 
               <div>
-                <label htmlFor="description">Description</label>
+                <label htmlFor="description">
+                  <strong>Description</strong>
+                </label>
                 <textarea
                   value={description}
                   type="text"
@@ -174,7 +188,9 @@ export default function Productscreen(props) {
                 ></textarea>
               </div>
               <div>
-                <label htmlFor="rating">Rating</label>
+                <label htmlFor="rating">
+                  <strong>Rating</strong>
+                </label>
                 <input
                   value={rating}
                   type="text"
@@ -184,7 +200,9 @@ export default function Productscreen(props) {
                 ></input>
               </div>
               <div>
-                <label htmlFor="numReviews">Numbers of reviews</label>
+                <label htmlFor="numReviews">
+                  <strong>Numbers of reviews</strong>
+                </label>
                 <input
                   value={numReviews}
                   type="text"
@@ -211,43 +229,49 @@ export default function Productscreen(props) {
           </form>
         </div>
       )}
-      <div className="product-list"></div>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Category</th>
-            <th>Brand</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {products.map((product) => (
-            <tr key={product._id}>
-              <td>{product._id}</td>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
-              <td>{product.category}</td>
-              <td>{product.brand}</td>
-              <td>
-                {" "}
-                <button className="button" onClick={() => openModal(product)}>
-                  {" "}
-                  Edit
-                </button>{" "}
-                <button
-                  className="button"
-                  onClick={() => deleteHandler(product)}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      {!modalVisible && (
+        <div className="product-list">
+          <table className="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Category</th>
+                <th>Brand</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products.map((product) => (
+                <tr key={product._id}>
+                  <td>{product._id}</td>
+                  <td>{product.name}</td>
+                  <td>{product.price}</td>
+                  <td>{product.category}</td>
+                  <td>{product.brand}</td>
+                  <td>
+                    {" "}
+                    <button
+                      className="button"
+                      onClick={() => openModal(product)}
+                    >
+                      {" "}
+                      Edit
+                    </button>{" "}
+                    <button
+                      className="button"
+                      onClick={() => deleteHandler(product)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 }

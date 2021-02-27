@@ -5,7 +5,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { USER_UPDATE_RESET } from "../constants/userConstants";
 
-// TODO Centrer User Profile
+// *fait Centrer User Profile
 
 export default function ProfileScreen() {
   const [name, setName] = useState("");
@@ -49,7 +49,7 @@ export default function ProfileScreen() {
       <form className="form" onSubmit={submitHandler}>
         <div>
           {" "}
-          <h1> User Profile </h1>
+          <h1 className="font-list text-center"> User Profile </h1>
         </div>
 
         {loading ? (

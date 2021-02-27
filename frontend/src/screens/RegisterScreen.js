@@ -31,7 +31,6 @@ export default function RegisterScreen(props) {
 
   useEffect(() => {
     if (userInfo) {
-      console.log("USERINFO", userInfo);
       props.history.push(redirect);
     }
   }, [props.history, redirect, userInfo]);
